@@ -205,8 +205,34 @@ gambar 10. top 10 revenue movie
 pada gambar 10 terlihat top 10 movie dengan pendapatan terbesar yang diantaranya yang paling atas terdapat Avatar dan yang paling bawah adalah Beauty and the Beast.
 
 ## 4. Data Preparation
+Berikut merupakan data preparation yang diterapkan pada project ini :
 
+1. Data Gathering
+Pada tahap ini, data diimpor dengan hati-hati agar dapat dibaca dan diproses dengan baik menggunakan dataframe dari library Pandas. Proses ini penting untuk memastikan data yang dikumpulkan dapat diolah secara efisien dan akurat.
 
+2. Pemeriksaan Missing Values
+Langkah awal adalah memastikan tidak ada data yang hilang (missing values) pada dataset. Pemeriksaan dilakukan untuk mengetahui apakah terdapat kolom atau baris dengan nilai kosong. Jika terdapat missing values, langkah penanganan seperti mengisi dengan Nan atau value unknown perlu diterapkan untuk menjaga integritas dataset. Dalam kasus ini, hasil pemeriksaan menunjukkan  ada data yang hilang, sehingga diperlukan langkah penanganan lebih lanjut untuk missing values. 
+
+3. Feature MinMaxscaler
+Feature ini digunakan untuk menormalkan kolom dalam dataset yang termasuk dalam daftar binned_features menggunakan MinMaxScaler. Dengan cara ini, nilai-nilai dalam kolom tersebut diubah ke dalam rentang 0 hingga 1, yang membantu memastikan bahwa semua fitur memiliki skala yang sama. Hal ini penting untuk mencegah fitur dengan rentang nilai lebih besar mendominasi model dan untuk meningkatkan efisiensi serta stabilitas pelatihan model, terutama untuk algoritma yang sensitif terhadap skala data seperti sistem rekomendasi ini.
+
+5. Tokenizer dengan nltk
+Fungsi tokenizer digunakan untuk memproses teks dan menghasilkan daftar kata dasar (stemming) yang sudah dibersihkan dari kata-kata yang tidak relevan. Fungsi ini pertama-tama membagi teks menjadi token-token menggunakan nltk.word_tokenize, kemudian menghapus kata-kata yang termasuk dalam daftar stop words bahasa Inggris, serta hanya mempertahankan token yang berupa alfabet dan memiliki panjang lebih dari satu karakter. Selanjutnya, setiap token yang tersisa diproses dengan Porter Stemmer untuk mengubahnya menjadi bentuk dasar (stem), yang berguna dalam analisis teks dan pemodelan machine learning agar model dapat fokus pada bentuk dasar kata dan bukan variasi kata yang berbeda.
+
+6. TF-IDF
+TF-IDF digunakan untuk memproses teks yang terdapat dalam kolom overview, tagline, dan keywords pada dataset movie_data dan menggabungkannya menjadi satu kolom baru bernama text. Setelah itu, TF-IDF Vectorizer diterapkan untuk mengubah teks menjadi representasi numerik menggunakan teknik Term Frequency-Inverse Document Frequency (TF-IDF), yang menilai pentingnya kata dalam setiap dokumen. Konfigurasi TfidfVectorizer seperti min_df, max_df, dan ngram_range diatur untuk memilih fitur yang relevan, dengan tokenisasi yang disesuaikan menggunakan fungsi tokenizer yang telah didefinisikan sebelumnya. Hasilnya adalah matriks fitur dari teks yang diubah menjadi DataFrame tfidf_df, yang berfungsi untuk merepresentasikan teks dalam format yang bisa digunakan untuk analisis lebih lanjut atau model pembelajaran mesin.
+
+7. Cosine Similarity
+Cosine Similarity digunakan untuk memberikan rekomendasi film berdasarkan kesamaan dengan film yang dimasukkan sebagai parameter title. Fungsi ini pertama-tama mencari indeks film yang sesuai dengan judul yang diberikan, kemudian menghitung skor kesamaan (cosine similarity) antara film tersebut dan semua film lainnya. Skor kesamaan ini diurutkan untuk mendapatkan 10 film yang paling mirip. Indeks film yang mirip ini kemudian digunakan untuk mengambil informasi terkait film, seperti nama film, ID IMDb, dan skor kesamaannya, yang hasil akhirnya disusun dalam bentuk DataFrame untuk memberikan daftar rekomendasi film yang relevan.
+
+8. Encoding
+Encoding digunakan untuk mengubah userId dalam dataset rating_small menjadi daftar unik yang berisi semua ID pengguna tanpa duplikasi. Setelah itu, ID pengguna tersebut di-encode menjadi nilai numerik dengan membuat kamus user_to_user_encoded yang memetakan setiap userId ke angka unik. Kamus kedua, user_encoded_to_user, dibuat untuk memetakan angka yang sudah di-encode kembali ke ID pengguna asli. Proses ini penting dalam pemrosesan data untuk sistem rekomendasi, karena banyak algoritma machine learning yang memerlukan input numerik dan tidak dapat langsung menangani ID berbasis string.
+
+10. Split Dataset
+Dataset dibagi menjadi dua subset:
+   - Data latih (training set): Digunakan untuk melatih model agar dapat mengenali pola dalam data.
+   - Data uji (test set): Digunakan untuk mengevaluasi performa model pada data baru yang belum pernah dilihat sebelumnya.
+Pembagian dilakukan dengan rasio 80:20, di mana 80% digunakan untuk pelatihan dan 20% untuk pengujian. Random state juga digunakan untuk memastikan hasil pembagian dataset konsisten di setiap eksekusi.
 
 ## 5. Modeling
 
