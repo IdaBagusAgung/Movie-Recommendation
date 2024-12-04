@@ -1,4 +1,4 @@
-# Proyek Kedua Machine Learning Terapan | Movie Recommendation Using Content Based Filltering and Collaborative Filltering
+![image](https://github.com/user-attachments/assets/9098c705-6eb7-44d7-8ef9-a76ba84c4704)# Proyek Kedua Machine Learning Terapan | Movie Recommendation Using Content Based Filltering and Collaborative Filltering
 
 ###### Disusun oleh : Ida Bagus Agung Bajerapany
 
@@ -134,6 +134,75 @@ Pada gambar 1 terlihat top 10 dari bahasa teratas berdasarkan film, dimulai dari
 
 2. Top 10 Movie Spoken Language
 
+![image](https://github.com/user-attachments/assets/7b1bd754-9aac-4346-b9f4-06b873b1879a)
+
+Gambar 2. Top 10 Movie Spoken Language
+
+Pada gambar 2 terlihat top 10 dari bahasa teratas yang digunakan dalam film. dimulai dari yang teratas adalah bahasa inggris hingga yang terakhir adalah bahasa portugis.
+
+3. Top 10 Genre Movie
+
+![image](https://github.com/user-attachments/assets/8708519c-3175-48c5-a7b6-714d615f16aa)
+
+Gambar 3. Top 10 Genre Movie
+
+Pada gambar 3 terlihat top 10 dari genre teratas yang terdapat pada film, dimulai dari yang teratas adalah genre drama hingga yang terakhir adalah genre science fiction.
+
+4. Top 10 Movie Production Countries
+
+![image](https://github.com/user-attachments/assets/87127082-2d62-45e8-b2e0-466cc8d4b64c)
+
+Gambar 4. Top 10 Movie Production Countries
+
+Pada gambar 4 terlihat top 10 dari negara produksi pada film, dimulai dari yang teratas adalah Negara Amerika hingga yang terakhir adalah Negara India.
+
+5. Top 10 Movie Production Companies
+
+![image](https://github.com/user-attachments/assets/2ebb569e-b979-49cc-9862-46c6b15c0fee)
+
+Gambar 5. Top 10 Movie Production Companies
+
+Pada gambar 5 terlihat top 10 dari perusahaan produksi pada film, dimulai dari yang teratas adalah Warner Bros hingga yang terakhir adalah United Artists.
+
+6. Top 10 Movie by Popular
+
+![image](https://github.com/user-attachments/assets/b77153fd-b62f-4208-b72d-288cf70bc330)
+
+Gambar 6. Top 10 Movie by Popular
+
+Pada gambar 6 terlihat top 10 movie dari kepopuleran berdasarkan vote, dimulai dari yang teratas adalah Inception hingga yang terakhir adalah The Hunger Game.
+
+7. WordCloud Graph Movie Overview
+
+![image](https://github.com/user-attachments/assets/57e39b98-011a-47b7-a888-3b2765790f3c)
+
+Gambar 7. WordCloud Graph Movie Overview
+
+Pada gambar 7 terlihat word cloud dari overview pada dataset, dapat dilihat terdapat kata-kata yang sering muncul dan memiliki ukuran lebih besar dari yang lainnya.
+
+8. WordCloud Graph Movie Tagline
+
+![image](https://github.com/user-attachments/assets/feb256a5-8157-43d4-b742-6eef00712523)
+
+Gambar 8. Wordcloud graph movie tagline
+
+Pada gambar 8 terlihat word cloud dari tagline pada dataset, dapat dilihat terdapat kata-kata yang sering muncul dan memiliki ukuran lebih besar dari yang lainnya.
+
+9. Top 10 Budget Movie Making
+
+![image](https://github.com/user-attachments/assets/09429fc3-cf37-4fda-8c21-0e371ffe88e7)
+
+gambar 9. top 10 budget movie making
+
+pada gambar 9 terlihat top 10 movie dengan budget terbesar yang diantaranya yang paling atas terdapat Pirates of The Caribian dan yang paling bawah adalah Captain Amerika: Civil War.
+
+10. Top 10 Revenue Movie
+
+![image](https://github.com/user-attachments/assets/65aa24db-bd9c-4656-8db4-2e49aedd761f)
+
+gambar 10. top 10 revenue movie
+
+pada gambar 10 terlihat top 10 movie dengan pendapatan terbesar yang diantaranya yang paling atas terdapat Avatar dan yang paling bawah adalah Beauty and the Beast.
 
 ## 4. Data Preparation
 
