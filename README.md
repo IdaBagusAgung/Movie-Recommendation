@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9098c705-6eb7-44d7-8ef9-a76ba84c4704)# Proyek Kedua Machine Learning Terapan | Movie Recommendation Using Content Based Filltering and Collaborative Filltering
+# Proyek Kedua Machine Learning Terapan | Movie Recommendation Using Content Based Filltering and Collaborative Filltering
 
 ###### Disusun oleh : Ida Bagus Agung Bajerapany
 
