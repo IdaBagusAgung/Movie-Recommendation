@@ -276,7 +276,7 @@ Berikut ini adalah plot metrik RMSE setelah proses pelatihan model:
 
 ![image](https://github.com/user-attachments/assets/9ad9f1fc-6e95-4e9a-b2fb-c02f01404f7d)
 
-Setelah melakukan pelatihan model, kami melihat plot metrik RMSE yang menunjukkan kinerja model dalam bentuk grafik. Dari plot tersebut, dapat terlihat bahwa model menghasilkan nilai RMSE sebesar 0.1809 pada train dan 0.2052 pada validation. Angka ini menunjukkan bahwa kinerja model sudah cukup baik, karena nilai RMSE yang lebih rendah menunjukkan kesalahan yang lebih kecil dalam prediksi.
+Setelah melakukan pelatihan model, dapat dilihat plot metrik RMSE yang menunjukkan kinerja model dalam bentuk grafik. Dari plot tersebut, dapat terlihat bahwa model menghasilkan nilai RMSE sebesar 0.1809 pada train dan 0.2052 pada validation. Angka ini menunjukkan bahwa kinerja model sudah cukup baik, karena nilai RMSE yang lebih rendah menunjukkan kesalahan yang lebih kecil dalam prediksi.
 
 ## Kesimpulan
 
