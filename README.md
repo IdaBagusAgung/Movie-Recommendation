@@ -92,15 +92,47 @@ Batch size merupakan jumlah sampel data yang diproses sekaligus sebelum memperba
 Menggunakan metrik root mean square error (RMSE) untuk mengevaluasi kualitas rekomendasi yang dihasilkan.
 
 ## 3. Data Understanding
-
 ### EDA - Deskripsi Variabel
 
+| Jenis | Keterangan |
+| ------ | ------ |
+| Title | _The Movies Dataset_ |
+| Source | [Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset/data) |
+| Maintainer | [Rounak Banik ⚡](https://www.kaggle.com/rounakbanik) |
+| License | Data files © Original Authors |
+| Visibility | Publik |
+| Tags | _Movies and TV Shows_ |
+| View | 1.87M |
+
+Informasi Dataset ini berisi informasi sebagai berikut ini : 
+- Dataset berupa CSV (Comma-Seperated Values).
+- Dataset memiliki 7 file berbeda (credits.csv, keywords.csv, links.csv, links_small.csv, movies_metadata.csv, ratings.csv, ratings_small.csv)
+- Masing-masing file dataset memiliki kolom yang berbeda.
+- Terdapat beberapa missing value terutama pada movies_metadata.csv (yang digunakan sebagai dataset utama dalam project ini)
 
 ### Variable - variable pada dataset
+Dataset ini terdiri dari beberapa file penting yang berisi informasi tentang film. Berikut adalah penjelasan lebih rinci mengenai masing-masing file:
 
+- movies_metadata.csv: Ini adalah file metadata film utama yang mencakup informasi tentang 45.000 film yang terdapat dalam dataset MovieLens lengkap. File ini berisi berbagai fitur seperti poster film, backdrop, anggaran, pendapatan, tanggal rilis, bahasa, serta negara dan perusahaan produksi. Data ini sangat berguna bagi siapa saja yang tertarik untuk menganalisis atau memahami lebih dalam tentang film yang ada.
+- keywords.csv: File ini berisi kata kunci plot untuk film-film yang ada dalam MovieLens. Data disajikan dalam bentuk objek JSON yang ter-string, yang memungkinkan pengguna untuk dengan mudah mengidentifikasi tema atau elemen penting dari masing-masing film berdasarkan kata kunci tersebut.
+- credits.csv: File ini menyediakan informasi mengenai pemeran dan kru untuk semua film dalam dataset. Seperti keywords, data di sini juga disajikan dalam bentuk JSON yang telah diubah menjadi string, yang memudahkan untuk melihat siapa saja yang terlibat dalam produksi film tersebut, termasuk sutradara, produser, serta anggota cast lainnya.
+- links.csv: Ini adalah file yang mencantumkan ID TMDB (The Movie Database) dan IMDB (Internet Movie Database) untuk semua film yang terdapat dalam dataset MovieLens. ID ini sangat penting jika Anda ingin menemukan informasi lebih lanjut mengenai film di platform luar atau untuk integrasi dengan sistem lain.
+- links_small.csv: Merupakan versi kecil dari file links.csv, yang hanya mencakup ID TMDB dan IMDB dari subset yang lebih kecil yaitu 9.000 film dari keseluruhan dataset. Ini berguna untuk analisis yang lebih cepat dan ringan, khususnya saat bekerja dengan jumlah data yang lebih sedikit.
+- ratings_small.csv: File ini berisi subset 100.000 rating yang diberikan oleh 700 pengguna untuk 9.000 film. Data ini memungkinkan analisis perilaku penonton, tren rating, serta membantu dalam pengembangan model rekomendasi film yang lebih baik.
 
+Secara keseluruhan, kumpulan data ini memberikan gambaran komprehensif tentang dunia perfilman dan dapat digunakan dalam berbagai analisis, seperti studi tren film, pengembangan algoritma rekomendasi, atau penelitian akademis dalam bidang media dan komunikasi. 
 
 ### EDA
+
+1. Top 10 Language by Movie
+
+![image](https://github.com/user-attachments/assets/3cd4ac0b-0613-4ba0-8c21-76c545318d97)
+
+Gambar 1. Top 10 Language by Movie
+
+Pada gambar 1 terlihat top 10 dari bahasa teratas berdasarkan film, dimulai dari yang teratas adalah bahasa inggris hingga yang terakhir adalah bahasa thionghoa.
+
+2. Top 10 Movie Spoken Language
 
 
 ## 4. Data Preparation
