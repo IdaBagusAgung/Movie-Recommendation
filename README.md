@@ -264,11 +264,11 @@ Pada proyek ini, menggunakan metrik RMSE (Root Mean Square Error) untuk mengeval
 ![image](https://github.com/user-attachments/assets/919ef4e0-d75f-45e7-a10f-2ddd8238b48b)
 
 Keterangan :
-RMSE = nilai root mean square error
-y = nilai hasil observasi
-ŷ = nilai hasil prediksi
-i = urutan data
-n = jumlah data
+- RMSE = nilai root mean square error
+- y = nilai hasil observasi
+- ŷ = nilai hasil prediksi
+- i = urutan data
+- n = jumlah data
 
 RMSE bekerja dengan cara menghitung nilai kesalahan antara prediksi yang dihasilkan model dan nilai observasi aktual. Proses perhitungannya dimulai dengan menghitung selisih kuadrat antara nilai prediksi dan nilai observasi, yang kemudian dijumlahkan dan dibagi dengan jumlah data. Akhirnya, hasil tersebut akan diambil akar kuadratnya. Nilai RMSE yang rendah mengindikasikan bahwa variasi yang dihasilkan oleh model prakiraan kita mendekati variasi yang terdapat dalam data observasi, yang berarti model tersebut memiliki akurasi yang baik.
 
