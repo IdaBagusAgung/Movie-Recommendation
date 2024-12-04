@@ -236,18 +236,55 @@ Pembagian dilakukan dengan rasio 80:20, di mana 80% digunakan untuk pelatihan da
 
 ## 5. Modeling
 
+### 1. Content Based Filltering
+
+Algoritma Content-Based Filtering yang digunakan dalam proyek ini bekerja dengan membandingkan kesamaan antar film berdasarkan fitur-fitur yang relevan, seperti deskripsi, genre, atau atribut lainnya yang sudah diubah menjadi representasi numerik. Langkah pertama adalah menghitung cosine similarity antar film dengan menggunakan matriks fitur yang terdapat dalam train. Kemudian, fungsi get_recommendations digunakan untuk mencari film yang paling mirip dengan film yang diberikan sebagai input (title). Fungsi ini mengidentifikasi indeks film yang sesuai dengan judul yang dimasukkan, menghitung skor kesamaan dengan semua film lain, dan menyusun daftar film yang paling mirip berdasarkan skor tersebut.
+
+Kelebihan dari pendekatan ini adalah sistem dapat memberikan rekomendasi berdasarkan atribut yang relevan dengan film yang disukai pengguna, tanpa memerlukan data interaksi dari pengguna lain. Ini memungkinkan sistem untuk bekerja bahkan untuk pengguna baru yang belum memberikan interaksi. Selain itu, content-based filtering memberikan rekomendasi yang lebih personal karena didasarkan pada kesamaan fitur dari film itu sendiri. Namun, kekurangannya adalah pendekatan ini hanya mengandalkan atribut yang ada, sehingga dapat menghasilkan rekomendasi yang terbatas atau kurang variatif, terutama jika film yang memiliki kesamaan fitur terbatas. Selain itu, content-based filtering sering kali mengalami masalah ketika ada film dengan deskripsi yang kurang lengkap atau tidak mencolok, sehingga mengurangi kualitas rekomendasi.
+
+Berikut merupakan top 15 rekomendasi menggunakan content based filltering :
+
+![image](https://github.com/user-attachments/assets/7c680e63-541c-4df6-b069-d9575aaaa5aa)
+
+### 2. Collaborative Filltering
+
+Algoritma Collaborative Filtering yang digunakan dalam proyek ini bekerja dengan memanfaatkan interaksi antara pengguna dan film untuk memberikan rekomendasi. Langkah pertama adalah melakukan encoding terhadap userId dan movieId menjadi angka yang unik, kemudian membagi data menjadi dua set: pelatihan dan validasi. Model menggunakan teknik embedding untuk memetakan setiap pengguna dan film ke dalam ruang vektor dengan ukuran tertentu, yang disebut embedding size. Setiap pengguna dan film mendapatkan representasi numerik dalam bentuk vektor, dan model ini memprediksi rating yang belum diberikan oleh pengguna berdasarkan kemiripan antara vektor pengguna dan film. Model dilatih menggunakan algoritma optimisasi untuk meminimalkan kesalahan prediksi rating, dan hasilnya dievaluasi menggunakan Root Mean Squared Error (RMSE).
+
+Kelebihan dari pendekatan Collaborative Filtering ini adalah model dapat memberikan rekomendasi yang sangat personal dengan memanfaatkan data interaksi pengguna, tanpa membutuhkan informasi tambahan tentang film, seperti deskripsi atau genre. Pendekatan ini juga mampu menangani masalah sparsity (kurangnya data) dengan mengandalkan kesamaan antar pengguna atau film. Namun, ada beberapa kekurangan, seperti masalah cold start, di mana model kesulitan memberikan rekomendasi untuk pengguna atau film baru yang tidak memiliki cukup interaksi sebelumnya. Selain itu, Collaborative Filtering juga rentan terhadap masalah skala besar, di mana model mungkin membutuhkan waktu dan sumber daya yang banyak untuk memproses data dengan jutaan pengguna dan film.
+
+Berikut merupakan top 10 rekomendasi menggunakan collaborative filltering :
+
+![image](https://github.com/user-attachments/assets/9bb8b69c-6871-4190-afe4-8d2b2b1c1e11)
 
 
 ## 6. Evaluation
 
+Pada proyek ini, menggunakan metrik RMSE (Root Mean Square Error) untuk mengevaluasi kinerja model yang dihasilkan. RMSE merupakan salah satu metode yang paling umum digunakan untuk mengukur kesalahan dalam model prediktif, khususnya ketika berurusan dengan data kuantitatif. Dengan menggunakan RMSE, kita dapat secara efektif menilai seberapa baik model kita dalam memprediksi nilai-nilai yang diharapkan berdasarkan data yang telah diamati sebelumnya. Berikut merupakan hasil metril evaluasi dari model :
+
+![image](https://github.com/user-attachments/assets/919ef4e0-d75f-45e7-a10f-2ddd8238b48b)
+
+Keterangan :
+RMSE = nilai root mean square error
+y = nilai hasil observasi
+ŷ = nilai hasil prediksi
+i = urutan data
+n = jumlah data
+
+RMSE bekerja dengan cara menghitung nilai kesalahan antara prediksi yang dihasilkan model dan nilai observasi aktual. Proses perhitungannya dimulai dengan menghitung selisih kuadrat antara nilai prediksi dan nilai observasi, yang kemudian dijumlahkan dan dibagi dengan jumlah data. Akhirnya, hasil tersebut akan diambil akar kuadratnya. Nilai RMSE yang rendah mengindikasikan bahwa variasi yang dihasilkan oleh model prakiraan kita mendekati variasi yang terdapat dalam data observasi, yang berarti model tersebut memiliki akurasi yang baik.
+
+Berikut ini adalah plot metrik RMSE setelah proses pelatihan model:
+
+![image](https://github.com/user-attachments/assets/9ad9f1fc-6e95-4e9a-b2fb-c02f01404f7d)
+
+Setelah melakukan pelatihan model, kami melihat plot metrik RMSE yang menunjukkan kinerja model dalam bentuk grafik. Dari plot tersebut, dapat terlihat bahwa model menghasilkan nilai RMSE sebesar 0.1809 pada train dan 0.2052 pada validation. Angka ini menunjukkan bahwa kinerja model sudah cukup baik, karena nilai RMSE yang lebih rendah menunjukkan kesalahan yang lebih kecil dalam prediksi.
 
 ## Kesimpulan
 
-
+Kesimpulan dari analisis ini menunjukkan bahwa model yang menggabungkan content-based filtering dan collaborative filtering berhasil memberikan hasil yang relevan dan akurat dalam sistem rekomendasi film. Melalui analisis dan pelatihan model, kami memperoleh hasil yang menunjukkan performa yang memadai. Berdasarkan plot metrik RMSE, model menghasilkan nilai RMSE sebesar 0.1809 pada data latih dan 0.2052 pada data validasi, yang menunjukkan bahwa kesalahan prediksi cukup rendah. Ini menandakan bahwa model telah belajar dengan baik dalam memprediksi preferensi pengguna dan karakteristik film. Selain itu, pendekatan ini dapat memberikan wawasan yang berguna dalam industri film dengan mengidentifikasi pola preferensi pengguna dan film yang sering dipilih, serta meningkatkan pengalaman pengguna melalui rekomendasi yang lebih personal dan relevan. 
 
 ## Kesimpulan Dampak Model Terhadap Business Understanding
 
-
+Pengembangan dan penerapan model sistem rekomendasi film yang mengintegrasikan content-based filtering dan collaborative filtering memberikan dampak signifikan terhadap pemahaman bisnis dalam industri hiburan, khususnya platform streaming film. Sistem rekomendasi ini mampu meningkatkan pengalaman pengguna dengan menyarankan film yang relevan dan sesuai dengan preferensi individu, mengatasi tantangan overload informasi, dan mempermudah penemuan konten yang lebih personal. Ini akan menghemat waktu pengguna dalam menemukan film yang disukai, yang pada akhirnya meningkatkan tingkat keterlibatan dan kepuasan pelanggan. Bagi penyedia platform streaming, sistem rekomendasi ini memberikan keuntungan tambahan berupa retensi pengguna yang lebih tinggi dan peningkatan loyalitas pelanggan, karena rekomendasi yang tepat meningkatkan pengalaman pengguna secara keseluruhan. Selain itu, dengan menggabungkan dua pendekatan, yaitu content-based filtering yang mengandalkan atribut film dan collaborative filtering yang mengidentifikasi pola preferensi pengguna, sistem ini lebih mampu mengatasi masalah seperti cold start dan data sparsity yang sering terjadi pada model rekomendasi. Dengan hasil analisis data dan pemilihan model terbaik melalui optimasi parameter seperti learning rate dan batch size, model ini dapat memberikan rekomendasi yang lebih akurat dan efisien. Hal ini tidak hanya bermanfaat bagi pengguna tetapi juga memberikan wawasan penting bagi industri film untuk memahami tren preferensi dan pola perilaku konsumen, yang pada akhirnya dapat membantu dalam peningkatan produksi film, pengembangan konten, dan strategi pemasaran yang lebih tepat sasaran. Secara keseluruhan, model rekomendasi ini membuka peluang baru dalam mengoptimalkan pengalaman pengguna di platform streaming dan memberikan insight berbasis data yang dapat digunakan untuk pengambilan keputusan yang lebih baik dalam industri film.
 
 ## Daftar Pustaka
 
@@ -257,9 +294,7 @@ Pembagian dilakukan dengan rasio 80:20, di mana 80% digunakan untuk pelatihan da
 4. MESIN REKOMENDASI FILM MENGGUNAKAN METODE KEMIRIPAN GENRE BERBASIS COLLABORATIVE FILTERING. (n.d.). https://repository.its.ac.id/42018/1/2215206701-Master-Thesis.pdf
 5. Pradeep, N., Rao Mangalore, K., Rajpal, B., Prasad, N., & Shastri, R. (2020). Content Based Movie Recommendation System. https://www.riejournal.com/article_121501_a3717e6cf19a1845e350acb9148751ee.pdf
 6. Gupta, M., Thakkar, A., Aashish, Gupta, V., & Rathore, D. P. S. (2020). Movie Recommender System Using Collaborative Filtering. 2020 International Conference on Electronics and Sustainable Communication Systems (ICESC), 415–420. https://doi.org/10.1109/icesc48915.2020.9155879
-7. 
 
-‌
 
 
 
