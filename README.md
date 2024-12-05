@@ -114,7 +114,7 @@ Dataset ini terdiri dari beberapa file penting yang berisi informasi tentang fil
 - movies_metadata.csv: Ini adalah file metadata film utama yang mencakup informasi tentang 45.000 film yang terdapat dalam dataset MovieLens lengkap. File ini berisi berbagai fitur seperti poster film, backdrop, anggaran, pendapatan, tanggal rilis, bahasa, serta negara dan perusahaan produksi. Data ini sangat berguna bagi siapa saja yang tertarik untuk menganalisis atau memahami lebih dalam tentang film yang ada.
 - keywords.csv: File ini berisi kata kunci plot untuk film-film yang ada dalam MovieLens. Data disajikan dalam bentuk objek JSON yang ter-string, yang memungkinkan pengguna untuk dengan mudah mengidentifikasi tema atau elemen penting dari masing-masing film berdasarkan kata kunci tersebut.
 - credits.csv: File ini menyediakan informasi mengenai pemeran dan kru untuk semua film dalam dataset. Seperti keywords, data di sini juga disajikan dalam bentuk JSON yang telah diubah menjadi string, yang memudahkan untuk melihat siapa saja yang terlibat dalam produksi film tersebut, termasuk sutradara, produser, serta anggota cast lainnya.
-- links.csv: Ini adalah file yang mencantumkan ID TMDB (The Movie Database) dan IMDB (Internet Movie Database) untuk semua film yang terdapat dalam dataset MovieLens. ID ini sangat penting jika Anda ingin menemukan informasi lebih lanjut mengenai film di platform luar atau untuk integrasi dengan sistem lain.
+- links.csv: Ini adalah file yang mencantumkan ID TMDB (The Movie Database) dan IMDB (Internet Movie Database) untuk semua film yang terdapat dalam dataset MovieLens. ID ini sangat penting jika ingin menemukan informasi lebih lanjut mengenai film di platform luar atau untuk integrasi dengan sistem lain.
 - links_small.csv: Merupakan versi kecil dari file links.csv, yang hanya mencakup ID TMDB dan IMDB dari subset yang lebih kecil yaitu 9.000 film dari keseluruhan dataset. Ini berguna untuk analisis yang lebih cepat dan ringan, khususnya saat bekerja dengan jumlah data yang lebih sedikit.
 - ratings_small.csv: File ini berisi subset 100.000 rating yang diberikan oleh 700 pengguna untuk 9.000 film. Data ini memungkinkan analisis perilaku penonton, tren rating, serta membantu dalam pengembangan model rekomendasi film yang lebih baik.
 
@@ -257,7 +257,7 @@ Berikut merupakan top 10 rekomendasi menggunakan collaborative filltering :
 
 ## 6. Evaluation
 
-Pada proyek ini, menggunakan metrik RMSE (Root Mean Square Error) untuk mengevaluasi kinerja model yang dihasilkan. RMSE merupakan salah satu metode yang paling umum digunakan untuk mengukur kesalahan dalam model prediktif, khususnya ketika berurusan dengan data kuantitatif. Dengan menggunakan RMSE, kita dapat secara efektif menilai seberapa baik model kita dalam memprediksi nilai-nilai yang diharapkan berdasarkan data yang telah diamati sebelumnya. Berikut merupakan hasil metril evaluasi dari model :
+Pada proyek ini, menggunakan metrik RMSE (Root Mean Square Error) untuk mengevaluasi kinerja model yang dihasilkan. RMSE merupakan salah satu metode yang paling umum digunakan untuk mengukur kesalahan dalam model prediktif, khususnya ketika berurusan dengan data kuantitatif. Dengan menggunakan RMSE,  dapat secara efektif menilai seberapa baik model dalam memprediksi nilai-nilai yang diharapkan berdasarkan data yang telah diamati sebelumnya. Berikut merupakan hasil metril evaluasi dari model :
 
 ![image](https://github.com/user-attachments/assets/919ef4e0-d75f-45e7-a10f-2ddd8238b48b)
 
@@ -268,7 +268,7 @@ Keterangan :
 - i = urutan data
 - n = jumlah data
 
-RMSE bekerja dengan cara menghitung nilai kesalahan antara prediksi yang dihasilkan model dan nilai observasi aktual. Proses perhitungannya dimulai dengan menghitung selisih kuadrat antara nilai prediksi dan nilai observasi, yang kemudian dijumlahkan dan dibagi dengan jumlah data. Akhirnya, hasil tersebut akan diambil akar kuadratnya. Nilai RMSE yang rendah mengindikasikan bahwa variasi yang dihasilkan oleh model prakiraan kita mendekati variasi yang terdapat dalam data observasi, yang berarti model tersebut memiliki akurasi yang baik.
+RMSE bekerja dengan cara menghitung nilai kesalahan antara prediksi yang dihasilkan model dan nilai observasi aktual. Proses perhitungannya dimulai dengan menghitung selisih kuadrat antara nilai prediksi dan nilai observasi, yang kemudian dijumlahkan dan dibagi dengan jumlah data. Akhirnya, hasil tersebut akan diambil akar kuadratnya. Nilai RMSE yang rendah mengindikasikan bahwa variasi yang dihasilkan oleh model prakiraan mendekati variasi yang terdapat dalam data observasi, yang berarti model tersebut memiliki akurasi yang baik.
 
 Berikut ini adalah plot metrik RMSE setelah proses pelatihan model:
 
