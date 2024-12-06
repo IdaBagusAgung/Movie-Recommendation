@@ -120,11 +120,7 @@ Dataset ini terdiri dari beberapa file penting yang berisi informasi tentang fil
 
 ![image](https://github.com/user-attachments/assets/73f4eb17-7d58-4030-8e89-5f6e488105dd)
 
-Gambar 1. Jumlah data dan jumlah kolom dataset
-
 ![image](https://github.com/user-attachments/assets/6b8a4c2f-6ab1-4c41-b91e-394d4ceda710)
-
-Gambar 2. Kolom yang ada pada dataset
 
 Dapat dilihat pada gambar diatas, masing-masing tabel yang ada pada dataset memiliki jumlah data dan baris seperti dibawah ini :
 - Data Ratings
