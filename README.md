@@ -336,7 +336,7 @@ Model Content Based Filltering menggunakan metrik precision untuk mengevaluasi k
 
 ![image](https://github.com/user-attachments/assets/36621cd6-36dc-48e9-917a-8667ad2a70f9)
 
-dengan menerapkan rumus tersebut kita dapat melakukan evaluasi precision dengan membagi hasil dari rekomendasi yang relevant dibagi dengan jumlah rekomendasi yang diberikan sehingga kita mendapatkan evaluasi berbentuk persentase keberhasilan rekomendasi yang diukur dengan precision. berikut merupakan hasil dari evaluasi model :
+dengan menerapkan rumus tersebut dapat melakukan evaluasi precision dengan membagi hasil dari rekomendasi yang relevant dibagi dengan jumlah rekomendasi yang diberikan sehingga mendapatkan evaluasi berbentuk persentase keberhasilan rekomendasi yang diukur dengan precision. berikut merupakan hasil dari evaluasi model :
 
 ![image](https://github.com/user-attachments/assets/8d2d8aef-ede9-4787-afbc-ce1344e126ea)
 
