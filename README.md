@@ -310,9 +310,9 @@ Algoritma Content-Based Filtering dimulai dengan mengekstrak fitur relevan dari 
 
 Kelebihan dari pendekatan ini adalah sistem dapat memberikan rekomendasi berdasarkan atribut yang relevan dengan film yang disukai pengguna, tanpa memerlukan data interaksi dari pengguna lain. Ini memungkinkan sistem untuk bekerja bahkan untuk pengguna baru yang belum memberikan interaksi. Selain itu, content-based filtering memberikan rekomendasi yang lebih personal karena didasarkan pada kesamaan fitur dari film itu sendiri. Namun, kekurangannya adalah pendekatan ini hanya mengandalkan atribut yang ada, sehingga dapat menghasilkan rekomendasi yang terbatas atau kurang variatif, terutama jika film yang memiliki kesamaan fitur terbatas. Selain itu, content-based filtering sering kali mengalami masalah ketika ada film dengan deskripsi yang kurang lengkap atau tidak mencolok, sehingga mengurangi kualitas rekomendasi.
 
-Berikut merupakan top 15 rekomendasi menggunakan content based filltering :
+Berikut merupakan top 15 rekomendasi menggunakan content based filltering dengan film Dead Man Walking bergenre drama :
 
-![image](https://github.com/user-attachments/assets/7c680e63-541c-4df6-b069-d9575aaaa5aa)
+![image](https://github.com/user-attachments/assets/f23bbca5-db3a-406c-b31c-56c366c669f9)
 
 ### 2. Collaborative Filltering
 
@@ -329,7 +329,25 @@ Berikut merupakan top 10 rekomendasi menggunakan collaborative filltering :
 
 ## 6. Evaluation
 
-Pada proyek ini, menggunakan metrik RMSE (Root Mean Square Error) untuk mengevaluasi kinerja model yang dihasilkan. RMSE merupakan salah satu metode yang paling umum digunakan untuk mengukur kesalahan dalam model prediktif, khususnya ketika berurusan dengan data kuantitatif. Dengan menggunakan RMSE,  dapat secara efektif menilai seberapa baik model dalam memprediksi nilai-nilai yang diharapkan berdasarkan data yang telah diamati sebelumnya. Berikut merupakan hasil metril evaluasi dari model :
+Pada proyek ini, memiliki dua evaluasi dari content based filltering dan collaborative filltering, berikut merupakan penjelasannya :
+
+1. Content Based Filltering
+Model Content Based Filltering menggunakan metrik precision untuk mengevaluasi kinerja model yang dihasilkan. berikut merupakan rumus metrik evaluasi dari model :
+
+![image](https://github.com/user-attachments/assets/36621cd6-36dc-48e9-917a-8667ad2a70f9)
+
+dengan menerapkan rumus tersebut kita dapat melakukan evaluasi precision dengan membagi hasil dari rekomendasi yang relevant dibagi dengan jumlah rekomendasi yang diberikan sehingga kita mendapatkan evaluasi berbentuk persentase keberhasilan rekomendasi yang diukur dengan precision. berikut merupakan hasil dari evaluasi model :
+
+![image](https://github.com/user-attachments/assets/8d2d8aef-ede9-4787-afbc-ce1344e126ea)
+
+Hasil perhitungan diatas didapat dari jumlah genre yang benar dalam hasil rekomendasi pada film "Dead Man Walking" yang memiliki genre drama, dan hasil rekomendasi yang didapat 14 rekomendasi memiliki genre drama dan hanya satu rekomendasi yang tidak memiliki genre drama, jadi hasil yang didapat precision pada model collaborative filltering ini adalah 93.33%.
+
+![image](https://github.com/user-attachments/assets/e37637df-0d02-46fd-a71d-5e39f1678071)
+
+![image](https://github.com/user-attachments/assets/b49ac144-c42f-4f6a-b243-22ee4835d6be)
+
+2. Collaborative Filltering
+Model Collaborative Filltering menggunakan metrik RMSE (Root Mean Square Error) untuk mengevaluasi kinerja model yang dihasilkan. RMSE merupakan salah satu metode yang paling umum digunakan untuk mengukur kesalahan dalam model prediktif, khususnya ketika berurusan dengan data kuantitatif. Dengan menggunakan RMSE,  dapat secara efektif menilai seberapa baik model dalam memprediksi nilai-nilai yang diharapkan berdasarkan data yang telah diamati sebelumnya. Berikut merupakan rumus metrik evaluasi dari model :
 
 ![image](https://github.com/user-attachments/assets/919ef4e0-d75f-45e7-a10f-2ddd8238b48b)
 
@@ -350,11 +368,11 @@ Setelah melakukan pelatihan model, dapat dilihat plot metrik RMSE yang menunjukk
 
 ## Kesimpulan
 
-Kesimpulan dari analisis ini menunjukkan bahwa model yang menggabungkan content-based filtering dan collaborative filtering berhasil memberikan hasil yang relevan dan akurat dalam sistem rekomendasi film. Melalui analisis dan pelatihan model, diperoleh hasil yang menunjukkan performa yang memadai. Berdasarkan plot metrik RMSE, model menghasilkan nilai RMSE sebesar 0.1809 pada data latih dan 0.2052 pada data validasi, yang menunjukkan bahwa kesalahan prediksi cukup rendah. Ini menandakan bahwa model telah belajar dengan baik dalam memprediksi preferensi pengguna dan karakteristik film. Selain itu, pendekatan ini dapat memberikan wawasan yang berguna dalam industri film dengan mengidentifikasi pola preferensi pengguna dan film yang sering dipilih, serta meningkatkan pengalaman pengguna melalui rekomendasi yang lebih personal dan relevan. 
+Kesimpulan dari analisis ini menunjukkan bahwa model yang menggabungkan content-based filtering dan collaborative filtering berhasil memberikan hasil yang relevan dan akurat dalam sistem rekomendasi film. Melalui analisis dan pelatihan model, diperoleh hasil yang menunjukkan performa yang memadai. Berdasarkan plot metrik RMSE, model menghasilkan nilai RMSE sebesar 0.1809 pada data latih dan 0.2052 pada data validasi, yang menunjukkan bahwa kesalahan prediksi cukup rendah. Ini menandakan bahwa model telah belajar dengan baik dalam memprediksi preferensi pengguna dan karakteristik film. Selain itu, pendekatan ini dapat memberikan wawasan yang berguna dalam industri film dengan mengidentifikasi pola preferensi pengguna dan film yang sering dipilih, serta meningkatkan pengalaman pengguna melalui rekomendasi yang lebih personal dan relevan. Evaluasi model juga menunjukkan hasil yang sangat baik pada content-based filtering, dengan nilai precision sebesar 93.33%, yang menandakan bahwa model mampu memberikan rekomendasi yang sangat akurat sesuai dengan preferensi pengguna. Angka precision yang tinggi ini memperkuat efektivitas pendekatan content-based filtering dalam menyarankan film yang relevan berdasarkan kesamaan fitur atau atribut film. Gabungan kedua metode ini memungkinkan model untuk memanfaatkan kekuatan masing-masing, menghasilkan rekomendasi yang lebih baik dan lebih sesuai dengan kebutuhan pengguna.
 
 ## Kesimpulan Dampak Model Terhadap Business Understanding
 
-Pengembangan dan penerapan model sistem rekomendasi film yang mengintegrasikan content-based filtering dan collaborative filtering memberikan dampak signifikan terhadap pemahaman bisnis dalam industri hiburan, khususnya platform streaming film. Sistem rekomendasi ini mampu meningkatkan pengalaman pengguna dengan menyarankan film yang relevan dan sesuai dengan preferensi individu, mengatasi tantangan overload informasi, dan mempermudah penemuan konten yang lebih personal. Ini akan menghemat waktu pengguna dalam menemukan film yang disukai, yang pada akhirnya meningkatkan tingkat keterlibatan dan kepuasan pelanggan. Bagi penyedia platform streaming, sistem rekomendasi ini memberikan keuntungan tambahan berupa retensi pengguna yang lebih tinggi dan peningkatan loyalitas pelanggan, karena rekomendasi yang tepat meningkatkan pengalaman pengguna secara keseluruhan. Selain itu, dengan menggabungkan dua pendekatan, yaitu content-based filtering yang mengandalkan atribut film dan collaborative filtering yang mengidentifikasi pola preferensi pengguna, sistem ini lebih mampu mengatasi masalah seperti cold start dan data sparsity yang sering terjadi pada model rekomendasi. Dengan hasil analisis data dan pemilihan model terbaik melalui optimasi parameter seperti learning rate dan batch size, model ini dapat memberikan rekomendasi yang lebih akurat dan efisien. Hal ini tidak hanya bermanfaat bagi pengguna tetapi juga memberikan wawasan penting bagi industri film untuk memahami tren preferensi dan pola perilaku konsumen, yang pada akhirnya dapat membantu dalam peningkatan produksi film, pengembangan konten, dan strategi pemasaran yang lebih tepat sasaran. Secara keseluruhan, model rekomendasi ini membuka peluang baru dalam mengoptimalkan pengalaman pengguna di platform streaming dan memberikan insight berbasis data yang dapat digunakan untuk pengambilan keputusan yang lebih baik dalam industri film.
+Pengembangan dan penerapan model sistem rekomendasi film yang mengintegrasikan content-based filtering dan collaborative filtering memberikan dampak signifikan terhadap pemahaman bisnis dalam industri hiburan, khususnya platform streaming film. Sistem rekomendasi ini mampu meningkatkan pengalaman pengguna dengan menyarankan film yang relevan dan sesuai dengan preferensi individu, mengatasi tantangan overload informasi, dan mempermudah penemuan konten yang lebih personal. Ini akan menghemat waktu pengguna dalam menemukan film yang disukai, yang pada akhirnya meningkatkan tingkat keterlibatan dan kepuasan pelanggan. Bagi penyedia platform streaming, sistem rekomendasi ini memberikan keuntungan tambahan berupa retensi pengguna yang lebih tinggi dan peningkatan loyalitas pelanggan, karena rekomendasi yang tepat meningkatkan pengalaman pengguna secara keseluruhan. Selain itu, dengan menggabungkan dua pendekatan, yaitu content-based filtering yang mengandalkan atribut film dan collaborative filtering yang mengidentifikasi pola preferensi pengguna, sistem ini lebih mampu mengatasi masalah seperti cold start dan data sparsity yang sering terjadi pada model rekomendasi. Dengan hasil analisis data dan pemilihan model terbaik melalui optimasi parameter seperti learning rate dan batch size, model ini dapat memberikan rekomendasi yang lebih akurat dan efisien. Hal ini tidak hanya bermanfaat bagi pengguna tetapi juga memberikan wawasan penting bagi industri film untuk memahami tren preferensi dan pola perilaku konsumen, yang pada akhirnya dapat membantu dalam peningkatan produksi film, pengembangan konten, dan strategi pemasaran yang lebih tepat sasaran. Evaluasi model juga menunjukkan hasil yang sangat baik pada content-based filtering, dengan precision sebesar 93.33%, yang mengindikasikan kemampuan model untuk memberikan rekomendasi yang sangat relevan dan akurat bagi pengguna. Secara keseluruhan, model rekomendasi ini membuka peluang baru dalam mengoptimalkan pengalaman pengguna di platform streaming dan memberikan insight berbasis data yang dapat digunakan untuk pengambilan keputusan yang lebih baik dalam industri film.
 
 ## Daftar Pustaka
 
