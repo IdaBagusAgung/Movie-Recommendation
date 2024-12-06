@@ -128,36 +128,49 @@ Gambar 2. Kolom yang ada pada dataset
 
 Dapat dilihat pada gambar diatas, masing-masing tabel yang ada pada dataset memiliki jumlah data dan baris seperti dibawah ini :
 - Data Ratings
-Data ratings terdiri dari 26.024.289 data dan memiliki 4 kolom yang terdiri dari (['userId', 'movieId', 'rating', 'timestamp'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data ratings :
+Data ratings terdiri dari 26.024.289 data dan memiliki 4 kolom yang terdiri dari 'userId', 'movieId', 'rating', 'timestamp'. Berikut merupakan kondisi dari data ratings :
+![image](https://github.com/user-attachments/assets/612548fb-f742-4c68-a78e-1f0d258168b2)
 
+Dapat dilihat pada gambar diatas, tabel ratings sudah lengkap tidak memiliki data yang kosong dan tidak memiliki data yang duplikat.
 
 - Data Links Small
-Data links small terdiri dari 9125 data dan memiliki 3 kolom yang terdiri dari (['movieId', 'imdbId', 'tmdbId'], dtype='object')  dengan tipe data object. Berikut merupakan kondisi dari link small :
+Data links small terdiri dari 9125 data dan memiliki 3 kolom yang terdiri dari 'movieId', 'imdbId', 'tmdbId'. Berikut merupakan kondisi dari link small :
+![image](https://github.com/user-attachments/assets/25e8722d-1a07-4d2d-8329-9bea6fcdcd45)
 
+Dapat dilihat pada gambar diatas, tabel links small memiliki data yang kosong pada kolom tmdbid dan tidak memiliki data yang duplikat.
 
 - Data Credits
-Data credits terdiri dari 45.476 data dan memiliki 3 kolom yang terdiri dari (['cast', 'crew', 'id'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data credits :
+Data credits terdiri dari 45.476 data dan memiliki 3 kolom yang terdiri dari 'cast', 'crew', 'id'. Berikut merupakan kondisi dari data credits :
+![image](https://github.com/user-attachments/assets/e1f889fc-680d-4edf-ac79-86685684b22a)
 
+Dapat dilihat pada gambar diatas, tabel credits tidak memiliki data yang kosong dan memiliki 37 data duplikat.
 
 - Data Keywords
-Data keywords terdiri dari 46.419 data dan memiliki 2 kolom yang terdiri dari (['id', 'keywords'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data keywords :
+Data keywords terdiri dari 46.419 data dan memiliki 2 kolom yang terdiri dari 'id', 'keywords'. Berikut merupakan kondisi dari data keywords :
+![image](https://github.com/user-attachments/assets/64a0ab71-52d1-48b0-85cf-7603a60238d0)
 
+Dapat dilihat pada gambar diatas, tabel keywords tidak memiliki data yang kosong dan memiliki 987 data yang duplikat.
 
 - Data Metadata
-Data metadata terdiri dari 45.466 data dan memiliki 24 kolom yang terdiri dari (['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari metadata :
+Data metadata terdiri dari 45.466 data dan memiliki 24 kolom yang terdiri dari 'adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count'. Berikut merupakan kondisi dari metadata :
+![image](https://github.com/user-attachments/assets/02c5307d-10f6-4ad1-b956-2f261b50151e)
+![image](https://github.com/user-attachments/assets/a3f98fa2-4091-4b9b-b5c6-74e8ba744363)
 
+Dapat dilihat pada gambar diatas, tabel metadata memiliki data yang kosong pada hampir sebgian besar kolomnya seperti contoh pada kolom popularity (5 data), pada kolom status (87 data) dan yang lainnya, dan memiliki 13 data duplikat.
  
 - Data Ratings Small
-Data ratings small terdiri dari 100.004 data dan memiliki 4 kolom yang terdiri dari (['userId', 'movieId', 'rating', 'timestamp'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari ratings small :
+Data ratings small terdiri dari 100.004 data dan memiliki 4 kolom yang terdiri dari 'userId', 'movieId', 'rating', 'timestamp'. Berikut merupakan kondisi dari ratings small :
+![image](https://github.com/user-attachments/assets/fc7950b7-6bcc-42a6-b530-c67d71cd8e79)
 
+Dapat dilihat pada gambar diatas, tabel ratings small sudah lengkap tidak memiliki data yang kosong dan tidak memiliki data yang duplikat.
  
 - Data Links
-Data links terdiri dari 45.843 data dan memiliki 3 kolom yang terdiri dari (['movieId', 'imdbId', 'tmdbId'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data links :
+Data links terdiri dari 45.843 data dan memiliki 3 kolom yang terdiri dari 'movieId', 'imdbId', 'tmdbId'. Berikut merupakan kondisi dari data links :
+![image](https://github.com/user-attachments/assets/a00d8154-d659-4ee2-b010-57c29037b397)
 
+Dapat dilihat pada gambar diatas, tabel links memiliki 219 data yang kosong dan tidak memiliki data duplikat.
 
-
-
-Secara keseluruhan, kumpulan data ini memberikan gambaran komprehensif tentang dunia perfilman dan dapat digunakan dalam berbagai analisis, seperti studi tren film, pengembangan algoritma rekomendasi, atau penelitian akademis dalam bidang media dan komunikasi. 
+Secara keseluruhan, kumpulan data ini memberikan gambaran komprehensif tentang dunia perfilman dan dapat digunakan dalam berbagai analisis, seperti studi tren film, pengembangan algoritma rekomendasi, atau penelitian akademis dalam bidang media dan komunikasi. Data yang kosong maupun duplikat akan dibersihkan pada bagian pre-processing sebelum modal dibentuk untuk menghasilkan model yang memiliki rekomendasi baik.
 
 ### EDA
 
