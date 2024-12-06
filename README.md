@@ -95,7 +95,7 @@ Menggunakan metrik root mean square error (RMSE) untuk mengevaluasi kualitas rek
 | Jenis | Keterangan |
 | ------ | ------ |
 | Title | _The Movies Dataset_ |
-| Source | [Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset/data) |
+| Source | [LINK DATASET](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset/data) |
 | Maintainer | [Rounak Banik ⚡](https://www.kaggle.com/rounakbanik) |
 | License | Data files © Original Authors |
 | Visibility | Publik |
@@ -117,6 +117,45 @@ Dataset ini terdiri dari beberapa file penting yang berisi informasi tentang fil
 - links.csv: Ini adalah file yang mencantumkan ID TMDB (The Movie Database) dan IMDB (Internet Movie Database) untuk semua film yang terdapat dalam dataset MovieLens. ID ini sangat penting jika ingin menemukan informasi lebih lanjut mengenai film di platform luar atau untuk integrasi dengan sistem lain.
 - links_small.csv: Merupakan versi kecil dari file links.csv, yang hanya mencakup ID TMDB dan IMDB dari subset yang lebih kecil yaitu 9.000 film dari keseluruhan dataset. Ini berguna untuk analisis yang lebih cepat dan ringan, khususnya saat bekerja dengan jumlah data yang lebih sedikit.
 - ratings_small.csv: File ini berisi subset 100.000 rating yang diberikan oleh 700 pengguna untuk 9.000 film. Data ini memungkinkan analisis perilaku penonton, tren rating, serta membantu dalam pengembangan model rekomendasi film yang lebih baik.
+
+![image](https://github.com/user-attachments/assets/73f4eb17-7d58-4030-8e89-5f6e488105dd)
+
+Gambar 1. Jumlah data dan jumlah kolom dataset
+
+![image](https://github.com/user-attachments/assets/6b8a4c2f-6ab1-4c41-b91e-394d4ceda710)
+
+Gambar 2. Kolom yang ada pada dataset
+
+Dapat dilihat pada gambar diatas, masing-masing tabel yang ada pada dataset memiliki jumlah data dan baris seperti dibawah ini :
+- Data Ratings
+Data ratings terdiri dari 26.024.289 data dan memiliki 4 kolom yang terdiri dari (['userId', 'movieId', 'rating', 'timestamp'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data ratings :
+
+
+- Data Links Small
+Data links small terdiri dari 9125 data dan memiliki 3 kolom yang terdiri dari (['movieId', 'imdbId', 'tmdbId'], dtype='object')  dengan tipe data object. Berikut merupakan kondisi dari link small :
+
+
+- Data Credits
+Data credits terdiri dari 45.476 data dan memiliki 3 kolom yang terdiri dari (['cast', 'crew', 'id'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data credits :
+
+
+- Data Keywords
+Data keywords terdiri dari 46.419 data dan memiliki 2 kolom yang terdiri dari (['id', 'keywords'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data keywords :
+
+
+- Data Metadata
+Data metadata terdiri dari 45.466 data dan memiliki 24 kolom yang terdiri dari (['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari metadata :
+
+ 
+- Data Ratings Small
+Data ratings small terdiri dari 100.004 data dan memiliki 4 kolom yang terdiri dari (['userId', 'movieId', 'rating', 'timestamp'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari ratings small :
+
+ 
+- Data Links
+Data links terdiri dari 45.843 data dan memiliki 3 kolom yang terdiri dari (['movieId', 'imdbId', 'tmdbId'], dtype='object') dengan tipe data object. Berikut merupakan kondisi dari data links :
+
+
+
 
 Secara keseluruhan, kumpulan data ini memberikan gambaran komprehensif tentang dunia perfilman dan dapat digunakan dalam berbagai analisis, seperti studi tren film, pengembangan algoritma rekomendasi, atau penelitian akademis dalam bidang media dan komunikasi. 
 
@@ -205,28 +244,25 @@ pada gambar 10 terlihat top 10 movie dengan pendapatan terbesar yang diantaranya
 ## 4. Data Preparation
 Berikut merupakan data preparation yang diterapkan pada project ini :
 
-1. Data Gathering
-Pada tahap ini, data diimpor dengan hati-hati agar dapat dibaca dan diproses dengan baik menggunakan dataframe dari library Pandas. Proses ini penting untuk memastikan data yang dikumpulkan dapat diolah secara efisien dan akurat.
-
-2. Pemeriksaan Missing Values
+1. Pemeriksaan Missing Values
 Langkah awal adalah memastikan tidak ada data yang hilang (missing values) pada dataset. Pemeriksaan dilakukan untuk mengetahui apakah terdapat kolom atau baris dengan nilai kosong. Jika terdapat missing values, langkah penanganan seperti mengisi dengan Nan atau value unknown perlu diterapkan untuk menjaga integritas dataset. Dalam kasus ini, hasil pemeriksaan menunjukkan  ada data yang hilang, sehingga diperlukan langkah penanganan lebih lanjut untuk missing values. 
 
-3. Feature MinMaxscaler
+2. Feature MinMaxscaler
 Feature ini digunakan untuk menormalkan kolom dalam dataset yang termasuk dalam daftar binned_features menggunakan MinMaxScaler. Dengan cara ini, nilai-nilai dalam kolom tersebut diubah ke dalam rentang 0 hingga 1, yang membantu memastikan bahwa semua fitur memiliki skala yang sama. Hal ini penting untuk mencegah fitur dengan rentang nilai lebih besar mendominasi model dan untuk meningkatkan efisiensi serta stabilitas pelatihan model, terutama untuk algoritma yang sensitif terhadap skala data seperti sistem rekomendasi ini.
 
-5. Tokenizer dengan nltk
+3. Tokenizer dengan nltk
 Fungsi tokenizer digunakan untuk memproses teks dan menghasilkan daftar kata dasar (stemming) yang sudah dibersihkan dari kata-kata yang tidak relevan. Fungsi ini pertama-tama membagi teks menjadi token-token menggunakan nltk.word_tokenize, kemudian menghapus kata-kata yang termasuk dalam daftar stop words bahasa Inggris, serta hanya mempertahankan token yang berupa alfabet dan memiliki panjang lebih dari satu karakter. Selanjutnya, setiap token yang tersisa diproses dengan Porter Stemmer untuk mengubahnya menjadi bentuk dasar (stem), yang berguna dalam analisis teks dan pemodelan machine learning agar model dapat fokus pada bentuk dasar kata dan bukan variasi kata yang berbeda.
 
-6. TF-IDF
+4. TF-IDF
 TF-IDF digunakan untuk memproses teks yang terdapat dalam kolom overview, tagline, dan keywords pada dataset movie_data dan menggabungkannya menjadi satu kolom baru bernama text. Setelah itu, TF-IDF Vectorizer diterapkan untuk mengubah teks menjadi representasi numerik menggunakan teknik Term Frequency-Inverse Document Frequency (TF-IDF), yang menilai pentingnya kata dalam setiap dokumen. Konfigurasi TfidfVectorizer seperti min_df, max_df, dan ngram_range diatur untuk memilih fitur yang relevan, dengan tokenisasi yang disesuaikan menggunakan fungsi tokenizer yang telah didefinisikan sebelumnya. Hasilnya adalah matriks fitur dari teks yang diubah menjadi DataFrame tfidf_df, yang berfungsi untuk merepresentasikan teks dalam format yang bisa digunakan untuk analisis lebih lanjut atau model pembelajaran mesin.
 
-7. Cosine Similarity
+5. Cosine Similarity
 Cosine Similarity digunakan untuk memberikan rekomendasi film berdasarkan kesamaan dengan film yang dimasukkan sebagai parameter title. Fungsi ini pertama-tama mencari indeks film yang sesuai dengan judul yang diberikan, kemudian menghitung skor kesamaan (cosine similarity) antara film tersebut dan semua film lainnya. Skor kesamaan ini diurutkan untuk mendapatkan 10 film yang paling mirip. Indeks film yang mirip ini kemudian digunakan untuk mengambil informasi terkait film, seperti nama film, ID IMDb, dan skor kesamaannya, yang hasil akhirnya disusun dalam bentuk DataFrame untuk memberikan daftar rekomendasi film yang relevan.
 
-8. Encoding
+6. Encoding
 Encoding digunakan untuk mengubah userId dalam dataset rating_small menjadi daftar unik yang berisi semua ID pengguna tanpa duplikasi. Setelah itu, ID pengguna tersebut di-encode menjadi nilai numerik dengan membuat kamus user_to_user_encoded yang memetakan setiap userId ke angka unik. Kamus kedua, user_encoded_to_user, dibuat untuk memetakan angka yang sudah di-encode kembali ke ID pengguna asli. Proses ini penting dalam pemrosesan data untuk sistem rekomendasi, karena banyak algoritma machine learning yang memerlukan input numerik dan tidak dapat langsung menangani ID berbasis string.
 
-10. Split Dataset
+7. Split Dataset
 Dataset dibagi menjadi dua subset:
    - Data latih (training set): Digunakan untuk melatih model agar dapat mengenali pola dalam data.
    - Data uji (test set): Digunakan untuk mengevaluasi performa model pada data baru yang belum pernah dilihat sebelumnya.
