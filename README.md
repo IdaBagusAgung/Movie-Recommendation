@@ -124,7 +124,7 @@ Dataset ini terdiri dari beberapa file penting yang berisi informasi tentang fil
 
 Dapat dilihat pada gambar diatas, masing-masing tabel yang ada pada dataset memiliki jumlah data dan baris seperti dibawah ini :
 - Data Ratings
-Data ratings terdiri dari 26.024.289 data dan memiliki 4 kolom yang terdiri dari 'userId', 'movieId', 'rating', 'timestamp'. Berikut merupakan kondisi dari data ratings :
+Data ratings terdiri dari 26.024.289 data dan memiliki 4 kolom yang terdiri dari 'userId' (Memuat ID dari user), 'movieId', 'rating', 'timestamp'. Berikut merupakan kondisi dari data ratings :
 
 ![image](https://github.com/user-attachments/assets/612548fb-f742-4c68-a78e-1f0d258168b2)
 
@@ -172,6 +172,54 @@ Data links terdiri dari 45.843 data dan memiliki 3 kolom yang terdiri dari 'movi
 ![image](https://github.com/user-attachments/assets/a00d8154-d659-4ee2-b010-57c29037b397)
 
 Dapat dilihat pada gambar diatas, tabel links memiliki 219 data yang kosong dan tidak memiliki data duplikat.
+
+Setiap file dataset memiliki fiturnya masing-masing, berikut merupakan penjelasan dari masing-masing fitur yang ada pada dataset :
+
+1. Ratings / Ratings Small
+- userId: Merupakan identitas unik setiap pengguna yang terdaftar dalam sistem. ID ini digunakan untuk melacak aktivitas pengguna, seperti memberikan rating terhadap film tertentu.
+- movieId: Identitas unik yang diberikan untuk setiap film dalam dataset. Kolom ini dapat digunakan untuk menghubungkan data antar tabel seperti Metadata, Keywords, atau Credits.
+- rating: Nilai atau skor yang diberikan pengguna kepada film. Biasanya, rating diberikan dalam skala 1–5, dengan 1 menunjukkan rating terendah (sangat tidak disukai) dan 5 menunjukkan rating tertinggi (sangat disukai).
+- timestamp: Waktu ketika pengguna memberikan rating, dalam format UNIX timestamp. Timestamp ini dapat dikonversi ke format tanggal dan waktu standar untuk analisis lebih lanjut, seperti melihat tren penilaian berdasarkan waktu.
+
+2. Links / Links Small
+- movieId: ID unik untuk setiap film, sama dengan kolom movieId di tabel Ratings. Kolom ini berfungsi sebagai penghubung antar tabel.
+- imdbId: ID unik dari IMDb (Internet Movie Database), yang merupakan salah satu platform film terbesar di dunia. Kolom ini dapat digunakan untuk mengambil data tambahan dari IMDb.
+- tmdbId: ID unik dari TMDB (The Movie Database), sebuah platform komunitas berbasis data film. TMDB menyediakan API yang memungkinkan pengembang untuk mengambil informasi lebih detail, seperti poster film atau data box office.
+
+3. Credits
+- cast: Menyimpan informasi tentang daftar pemeran dalam film, seperti nama aktor atau aktris. Data ini disimpan dalam format JSON, sehingga perlu diproses lebih lanjut untuk analisis, misalnya menentukan aktor yang paling sering bermain dalam film tertentu.
+- crew: Menyimpan informasi tentang anggota kru yang terlibat dalam produksi film. Kolom ini mencakup informasi tentang sutradara, produser, penulis naskah, dan lainnya, juga dalam format JSON.
+- id: ID unik yang merujuk pada film tertentu, yang dapat digunakan untuk menghubungkan tabel Credits dengan tabel lainnya seperti Metadata atau Ratings.
+
+4. Keywords
+- id: ID unik untuk setiap film, digunakan untuk menghubungkan data dengan tabel lainnya.
+- keywords: Menyimpan daftar kata kunci atau istilah yang relevan dengan film, dalam format JSON. Kata kunci ini mencerminkan tema atau elemen penting dari film tersebut, seperti “perjalanan waktu” atau “perang luar angkasa”. Kolom ini berguna untuk membangun sistem rekomendasi berbasis konten.
+
+5. Meta Data
+- adult: Indikator apakah film ditujukan hanya untuk penonton dewasa. Bernilai True jika film memiliki konten dewasa, dan False jika tidak.
+- belongs_to_collection: Menyimpan informasi tentang koleksi atau seri film, jika film tersebut merupakan bagian dari suatu waralaba (franchise). Data ini disimpan dalam format JSON.
+- budget: Total anggaran produksi film dalam satuan USD. Data ini sering digunakan untuk analisis korelasi antara anggaran dan pendapatan.
+- genres: Daftar genre film (misalnya, Action, Comedy, Drama), disimpan dalam format JSON. Genre membantu dalam pengelompokkan film berdasarkan kategori tertentu.
+- homepage: URL yang mengarah ke halaman resmi film. Berguna untuk memberikan referensi tambahan terkait promosi film.
+- id: ID unik untuk setiap film, yang berfungsi sebagai kunci utama untuk menghubungkan data antar tabel.
+- imdb_id: ID film di database IMDb. Berguna untuk mengambil detail tambahan menggunakan API IMDb.
+- original_language: Kode bahasa asli film, seperti en untuk Bahasa Inggris atau fr untuk Bahasa Prancis.
+- original_title: Judul asli film sebelum diterjemahkan atau diadaptasi.
+- overview: Ringkasan singkat atau sinopsis film, memberikan gambaran umum tentang alur cerita film.
+- popularity: Skor yang mencerminkan tingkat popularitas film berdasarkan berbagai metrik, seperti jumlah vote dan interaksi pengguna.
+- poster_path: Path atau URL menuju poster resmi film. Poster ini dapat digunakan untuk membuat antarmuka visual, seperti aplikasi rekomendasi film.
+- production_companies: Informasi tentang perusahaan produksi yang terlibat dalam pembuatan film, dalam format JSON.
+- production_countries: Daftar negara tempat produksi film dilakukan, dalam format JSON.
+- release_date: Tanggal rilis resmi film.
+- revenue: Pendapatan yang dihasilkan oleh film (dalam USD), biasanya diukur berdasarkan box office global.
+- runtime: Durasi film dalam menit.
+- spoken_languages: Bahasa yang digunakan dalam dialog film, dalam format JSON.
+- status: Status rilis film, misalnya “Released” (sudah dirilis) atau “Post Production” (masih dalam tahap pasca-produksi).
+- tagline: Slogan atau kalimat pendek yang menggambarkan film.
+- title: Judul resmi film yang digunakan untuk promosi.
+- video: Indikator apakah ada video promosi terkait film tersebut (True/False).
+- vote_average: Skor rata-rata berdasarkan voting pengguna, sering digunakan sebagai indikator kualitas film.
+- vote_count: Jumlah total voting yang diberikan pengguna.
 
 Secara keseluruhan, kumpulan data ini memberikan gambaran komprehensif tentang dunia perfilman dan dapat digunakan dalam berbagai analisis, seperti studi tren film, pengembangan algoritma rekomendasi, atau penelitian akademis dalam bidang media dan komunikasi. Data yang kosong maupun duplikat akan dibersihkan pada bagian pre-processing sebelum modal dibentuk untuk menghasilkan model yang memiliki rekomendasi baik.
 
@@ -260,32 +308,32 @@ pada gambar 10 terlihat top 10 movie dengan pendapatan terbesar yang diantaranya
 ## 4. Data Preparation
 Berikut merupakan data preparation yang diterapkan pada project ini :
 
-1. Penanganan Missing Values
-Langkah awal adalah memastikan tidak ada data yang hilang (missing values) pada dataset. Pemeriksaan dilakukan untuk mengetahui apakah terdapat kolom atau baris dengan nilai kosong. Jika terdapat missing values, langkah penanganan seperti mengisi dengan Nan atau value unknown perlu diterapkan untuk menjaga integritas dataset. Dalam kasus ini, hasil pemeriksaan menunjukkan  ada data yang hilang, sehingga diperlukan langkah penanganan lebih lanjut untuk missing values. pada proyek ini missing value terdapat pada tabel link, link small dan metadata.
-
-2. Penangan Duplikasi Data
-Setelah melakukan pengecekan missing value, selanjutnya melakukan pengecekan duplikasi data dengan fungsi duplicated(). pemeriksaan ini dilakukan untuk mengetahui apakah terdapat duplikasi pada kolom yang ada pada dataset, langkah penanganan ini adalah dengan menghapus duplikasi data yang terdapat pada kolom untuk menjaga performa dataset. Dalam kasus ini, hasil pemeriksaan menunjukan terdapat duplikasi data pada kolom kredit, keyword dan metadata yang akan dihapus sebelum membuat model rekomendasi.
-
-3. Perubahan Tipe Data
+1. Perubahan Tipe Data
 Perubahan tipe data ini dilakukan untuk memudahkan analisis dan melakukan modeling, seperti pada projek ini terdapat tipe data yang kurang cocok seperti kolom release date dan release year yang sebelumnya bertipe data object dirubah menjadi tipe data datetime, untuk memperbaiki kualitas dataset sebelum dilakukan modeling.
 
-4. CountVectorizer
-CountVectorizer digunakan untuk mengubah data teks menjadi representasi numerik dalam bentuk matriks fitur, di mana setiap kolom mewakili sebuah kata unik dari teks, dan setiap baris mewakili dokumen (atau item data) yang berisi jumlah kemunculan kata tersebut. Dalam konteks proyek ini, CountVectorizer diterapkan pada kolom "CC" dari dataset movie_data, dengan parameter lowercase=False untuk mempertahankan huruf besar-kecil dan min_df=4 untuk hanya menyertakan kata-kata yang muncul setidaknya empat kali di seluruh dataset. Proses ini menghasilkan matriks sparse yang diubah menjadi DataFrame (cast_df) untuk kemudahan analisis, dengan kata-kata unik sebagai kolom dan jumlah kemunculan kata dalam setiap dokumen sebagai nilai, memungkinkan data teks digunakan sebagai input dalam algoritma pembelajaran mesin atau analisis lebih lanjut.
+2. Penangan Duplikasi Data
+Selanjutnya melakukan pengecekan duplikasi data dengan fungsi duplicated(). pemeriksaan ini dilakukan untuk mengetahui apakah terdapat duplikasi pada kolom yang ada pada dataset, langkah penanganan ini adalah dengan menghapus duplikasi data yang terdapat pada kolom untuk menjaga performa dataset. Dalam kasus ini, hasil pemeriksaan menunjukan terdapat duplikasi data pada kolom kredit, keyword dan metadata yang akan dihapus sebelum membuat model rekomendasi.
 
-5. Tokenizer dengan nltk
-Fungsi tokenizer digunakan untuk memproses teks dan menghasilkan daftar kata dasar (stemming) yang sudah dibersihkan dari kata-kata yang tidak relevan. Fungsi ini pertama-tama membagi teks menjadi token-token menggunakan nltk.word_tokenize, kemudian menghapus kata-kata yang termasuk dalam daftar stop words bahasa Inggris, serta hanya mempertahankan token yang berupa alfabet dan memiliki panjang lebih dari satu karakter. Selanjutnya, setiap token yang tersisa diproses dengan Porter Stemmer untuk mengubahnya menjadi bentuk dasar (stem), yang berguna dalam analisis teks dan pemodelan machine learning agar model dapat fokus pada bentuk dasar kata dan bukan variasi kata yang berbeda.
+3. Penanganan Missing Values
+Langkah awal adalah memastikan tidak ada data yang hilang (missing values) pada dataset. Pemeriksaan dilakukan untuk mengetahui apakah terdapat kolom atau baris dengan nilai kosong. Jika terdapat missing values, langkah penanganan seperti mengisi dengan Nan atau value unknown perlu diterapkan untuk menjaga integritas dataset. Dalam kasus ini, hasil pemeriksaan menunjukkan  ada data yang hilang, sehingga diperlukan langkah penanganan lebih lanjut untuk missing values. pada proyek ini missing value terdapat pada tabel link, link small dan metadata.
 
-6. Dummies
-Fungsi dummies digunakan untuk mengonversi data kategorikal menjadi representasi numerik dalam bentuk variabel dummy (atau one-hot encoding). Dalam proyek ini, pd.get_dummies diterapkan pada kolom original_language dari dataset movie_data, menghasilkan sebuah DataFrame baru bernama languages, di mana setiap kolom mewakili satu bahasa unik dari kolom asli. Nilainya berupa 1 jika film tersebut menggunakan bahasa tertentu, dan 0 jika tidak. Representasi ini memungkinkan algoritma pembelajaran mesin untuk memahami data kategorikal tanpa memperkenalkan urutan atau skala numerik yang tidak sesuai, sehingga dapat digunakan dalam model prediktif dengan lebih akurat.
-
-7. Merge data dengan Concat
-Fungsi concat digunakan untuk menggabungkan beberapa DataFrame atau Series menjadi satu DataFrame baru, baik secara horizontal (kolom) maupun vertikal (baris). Dalam proyek ini, pd.concat menggabungkan DataFrame languages, genres_df, cast_df, writing_df, dan tfidf_df secara horizontal (dengan axis=1), menghasilkan DataFrame baru bernama train. Gabungan ini mengintegrasikan berbagai fitur seperti bahasa, genre, cast, penulis, dan hasil transformasi TF-IDF ke dalam satu struktur data, sehingga dapat digunakan sebagai matriks fitur lengkap untuk melatih model pembelajaran mesin. Setelah penggabungan, tipe data seluruh nilai dalam DataFrame diubah menjadi np.int8 untuk mengurangi penggunaan memori.
-
-8. Feature MinMaxscaler
+4. Feature MinMaxscaler
 Feature ini digunakan untuk menormalkan kolom dalam dataset yang termasuk dalam daftar binned_features menggunakan MinMaxScaler. Dengan cara ini, nilai-nilai dalam kolom tersebut diubah ke dalam rentang 0 hingga 1, yang membantu memastikan bahwa semua fitur memiliki skala yang sama. Hal ini penting untuk mencegah fitur dengan rentang nilai lebih besar mendominasi model dan untuk meningkatkan efisiensi serta stabilitas pelatihan model, terutama untuk algoritma yang sensitif terhadap skala data seperti sistem rekomendasi ini.
 
-9. TF-IDF
+5. Dummies
+Fungsi dummies digunakan untuk mengonversi data kategorikal menjadi representasi numerik dalam bentuk variabel dummy (atau one-hot encoding). Dalam proyek ini, pd.get_dummies diterapkan pada kolom original_language dari dataset movie_data, menghasilkan sebuah DataFrame baru bernama languages, di mana setiap kolom mewakili satu bahasa unik dari kolom asli. Nilainya berupa 1 jika film tersebut menggunakan bahasa tertentu, dan 0 jika tidak. Representasi ini memungkinkan algoritma pembelajaran mesin untuk memahami data kategorikal tanpa memperkenalkan urutan atau skala numerik yang tidak sesuai, sehingga dapat digunakan dalam model prediktif dengan lebih akurat.
+
+6. Tokenizer dengan nltk
+Fungsi tokenizer digunakan untuk memproses teks dan menghasilkan daftar kata dasar (stemming) yang sudah dibersihkan dari kata-kata yang tidak relevan. Fungsi ini pertama-tama membagi teks menjadi token-token menggunakan nltk.word_tokenize, kemudian menghapus kata-kata yang termasuk dalam daftar stop words bahasa Inggris, serta hanya mempertahankan token yang berupa alfabet dan memiliki panjang lebih dari satu karakter. Selanjutnya, setiap token yang tersisa diproses dengan Porter Stemmer untuk mengubahnya menjadi bentuk dasar (stem), yang berguna dalam analisis teks dan pemodelan machine learning agar model dapat fokus pada bentuk dasar kata dan bukan variasi kata yang berbeda.
+
+7. TF-IDF
 TF-IDF digunakan untuk memproses teks yang terdapat dalam kolom overview, tagline, dan keywords pada dataset movie_data dan menggabungkannya menjadi satu kolom baru bernama text. Setelah itu, TF-IDF Vectorizer diterapkan untuk mengubah teks menjadi representasi numerik menggunakan teknik Term Frequency-Inverse Document Frequency (TF-IDF), yang menilai pentingnya kata dalam setiap dokumen. Konfigurasi TfidfVectorizer seperti min_df, max_df, dan ngram_range diatur untuk memilih fitur yang relevan, dengan tokenisasi yang disesuaikan menggunakan fungsi tokenizer yang telah didefinisikan sebelumnya. Hasilnya adalah matriks fitur dari teks yang diubah menjadi DataFrame tfidf_df, yang berfungsi untuk merepresentasikan teks dalam format yang bisa digunakan untuk analisis lebih lanjut atau model pembelajaran mesin.
+
+8. CountVectorizer
+CountVectorizer digunakan untuk mengubah data teks menjadi representasi numerik dalam bentuk matriks fitur, di mana setiap kolom mewakili sebuah kata unik dari teks, dan setiap baris mewakili dokumen (atau item data) yang berisi jumlah kemunculan kata tersebut. Dalam konteks proyek ini, CountVectorizer diterapkan pada kolom "CC" dari dataset movie_data, dengan parameter lowercase=False untuk mempertahankan huruf besar-kecil dan min_df=4 untuk hanya menyertakan kata-kata yang muncul setidaknya empat kali di seluruh dataset. Proses ini menghasilkan matriks sparse yang diubah menjadi DataFrame (cast_df) untuk kemudahan analisis, dengan kata-kata unik sebagai kolom dan jumlah kemunculan kata dalam setiap dokumen sebagai nilai, memungkinkan data teks digunakan sebagai input dalam algoritma pembelajaran mesin atau analisis lebih lanjut.
+
+9. Merge data dengan Concat
+Fungsi concat digunakan untuk menggabungkan beberapa DataFrame atau Series menjadi satu DataFrame baru, baik secara horizontal (kolom) maupun vertikal (baris). Dalam proyek ini, pd.concat menggabungkan DataFrame languages, genres_df, cast_df, writing_df, dan tfidf_df secara horizontal (dengan axis=1), menghasilkan DataFrame baru bernama train. Gabungan ini mengintegrasikan berbagai fitur seperti bahasa, genre, cast, penulis, dan hasil transformasi TF-IDF ke dalam satu struktur data, sehingga dapat digunakan sebagai matriks fitur lengkap untuk melatih model pembelajaran mesin. Setelah penggabungan, tipe data seluruh nilai dalam DataFrame diubah menjadi np.int8 untuk mengurangi penggunaan memori.
 
 10. Encoding
 Encoding digunakan untuk mengubah userId dalam dataset rating_small menjadi daftar unik yang berisi semua ID pengguna tanpa duplikasi. Setelah itu, ID pengguna tersebut di-encode menjadi nilai numerik dengan membuat kamus user_to_user_encoded yang memetakan setiap userId ke angka unik. Kamus kedua, user_encoded_to_user, dibuat untuk memetakan angka yang sudah di-encode kembali ke ID pengguna asli. Proses ini penting dalam pemrosesan data untuk sistem rekomendasi, karena banyak algoritma machine learning yang memerlukan input numerik dan tidak dapat langsung menangani ID berbasis string.
